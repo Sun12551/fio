@@ -224,8 +224,8 @@ static uint8_t wait_for_action(int fd, unsigned int timeout_ms)
 	res = select(max(fd, timerfd) + 1, &rfds, NULL, &efds,
 		     timerfd >= 0 ? NULL : &timeout);
 	if (res < 0) {
-		log_err("fio: select() call in helper thread failed: %s",
-			strerror(errno));
+		//log_err("fio: select() call in helper thread failed: %s",
+		//	strerror(errno));
 		return A_EXIT;
 	}
 	if (FD_ISSET(fd, &rfds))
